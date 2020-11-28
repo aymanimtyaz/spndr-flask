@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Signup for spndr</title>
+        <link rel="stylesheet" 
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+              crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
+    </head>
+    <body class="text-center">
+        <br><br><br><br><br><br>
+        <div class="container" style="width: 350px;">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" novalidate>
+                        <h1 class="text-center h3 mb-3 font-weight-normal">Signup</h1>
+                        {{form.hidden_tag()}}
+                        {{form.email(type="email", id="inputEmail", class="form-control", placeholder="Email")}}
+                        {%for errors in form.email.errors%}
+                        <small class="form-text text-muted">{{errors}}</small>
+                        {%endfor%}
+                        {{form.password(type="password", id="inputPassword", class="form-control", placeholder="Password")}}
+                        {{form.confirm_password(type="password", id="inputPassword", class="form-control", placeholder="Confirm Password")}}
+                        {%if email_in_use%}
+                        <small class="form-text text-muted">The email address entered is already in use.</small>
+                        {%endif%}
+                        {%for errors in form.password.errors%}
+                        <small class="form-text text-muted">{{errors}}</small>
+                        {%endfor%}
+                        <br>
+                        {{form.submit_button(class="btn btn-lg btn-primary btn-block", type="submit")}}<br>
+                        <h4 style="font-family: 'Stalinist One', cursive;"><a href="{{url_for('core.index')}}" style="text-decoration:none; color: black;">spndr</a></h4>
+                        <p class="mt-5 mb-3 text-muted text-center">&copy; spndr inc. </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+                crossorigin="anonymous"></script>
+    </body>
+</html>

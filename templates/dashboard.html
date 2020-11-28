@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+{%block content%}
+{%if current_user.is_authenticated%}
+<div class="jumbotron">
+    <div class="container" style="width: 1000px;">
+        <h3>Your last 10 transactions</h3>
+        <ol>
+            {%for data in dash_array%}
+            <li>{{data}}</li>
+            {%endfor%}
+        </ol>
+    </div>
+</div>
+{%endif%}
+{%endblock%}

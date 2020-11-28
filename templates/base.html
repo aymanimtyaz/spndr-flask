@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>spndr</title>
+        <link rel="stylesheet" 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+            crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet"> 
+    </head>
+    <body style="min-height: max-content;
+                 background-color: rgb(239, 239, 252);
+                 background-repeat: no-repeat;
+                 background-size: cover;">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #21052c;">
+            <a class="navbar-brand" style="font-family: 'Stalinist One', cursive; color: white;">spndr</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" style="color: rgb(239, 239, 252);" href="{{url_for('core.index')}}">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('core.about')}}">About Us</a>
+                    </li>
+                    {%if current_user.is_authenticated%}
+                    <li class="nav-item">  
+                        <a class="btn btn-primary" href="{{url_for('core.newtransaction')}}" role="button">New Spnd</a>
+                    </li>
+                    {%endif%}
+                </ul>
+                {%if current_user.is_authenticated%}
+                <a class="nav-link" href="{{url_for('users.logout')}}" style="color: rgb(239, 239, 252);">Logout</a>
+                {%else%}
+                <a class="nav-link" href="{{url_for('users.login')}}" style="color: rgb(239, 239, 252);">Login</a>
+                {%endif%}
+            </div>
+        </nav>
+        {%block content%}
+        {%endblock%}
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+			    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+                crossorigin="anonymous"></script>
+    </body>
+</html>

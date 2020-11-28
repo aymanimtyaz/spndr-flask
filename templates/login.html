@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sign in to spndr</title>
+        <link rel="stylesheet" 
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+              crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
+    </head>
+    <body class="text-center">
+        <br><br><br><br><br><br>
+        <div class="container" style="width: 350px;">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-signin" method="POST">
+                        <h1 class="h3 mb-3 font-weight-normal">Login to spndr</h1>
+                        {{form.hidden_tag()}}
+                        {{form.email(type="email", id="inputEmail", class="form-control", placeholder="Email")}}
+                        {{form.password(type="password", id="inputPassword", class="form-control", placeholder="Password")}}
+                        {%if incorrect_email_or_password%}
+                        <small class="form-text text-muted">The email or password entered is incorrect.</small>
+                        {%endif%}
+                        <br>
+                        {{form.submit_button(class="btn btn-lg btn-primary btn-block", type="submit")}}
+                        <br>
+                        <p>New to spndr? <a href="{{url_for('users.signup')}}">Signup</a></p>
+                        <h4 style="font-family: 'Stalinist One', cursive;"><a href="{{url_for('core.index')}}" style="text-decoration:none; color: black;">spndr</a></h4> 
+                        <p class="mt-5 mb-3 text-muted">&copy; spndr inc. </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+                crossorigin="anonymous"></script>
+    </body>
+</html>

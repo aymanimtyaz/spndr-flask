@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+{%block content%}
+<br><br><br><br><br><br>
+<div class="container" style="width: 700px;">
+    <div class="card-header">
+        <h3>New Spndng?</h3>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" novalidate>
+                {{form.hidden_tag()}}
+                {{form.item(class="form-control", placeholder="What did you buy?")}}
+                {%if form.item.errors%}
+                <small class="form-text text-muted text-center">{{form.item.errors[0]}}</small>
+                {%endif%}
+                {{form.price(class="form-control", placeholder="How much did you spend?")}}
+                {%if form.price.errors%}
+                <small class="form-text text-muted text-center">{{form.price.errors[0]}}</small>
+                {%endif%}
+                {{form.vendor(class="form-control", placeholder="Where did you buy it from?")}}
+                {%if form.vendor.errors%}
+                <small class="form-text text-muted text-center">{{form.vendor.errors[0]}}</small>
+                {%endif%}
+                {{form.category(class="form-control", placeholder="What category would you put this purchase in?")}}
+                {%if form.category.errors%}
+                <small class="form-text text-muted text-center">{{form.category.errors[0]}}</small>
+                {%endif%}
+                <br>
+                <div class="text-center">
+                    {{form.submit_button(type="submit", class="btn btn-primary")}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}
