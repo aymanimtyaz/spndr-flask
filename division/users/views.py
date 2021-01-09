@@ -1,9 +1,9 @@
 from flask import render_template, redirect, url_for, request, Blueprint, flash, request
 from flask_login import login_user, login_required, logout_user, current_user
-from src import db 
-from src.models.user_model import User
-from src.forms.login_form import LoginForm
-from src.forms.signup_form import SignupForm
+from spndr_flask import db 
+from spndr_flask.models.user_model import User
+from spndr_flask.forms.login_form import LoginForm
+from spndr_flask.forms.signup_form import SignupForm
 from spndr_tg.db_engine import db_operations as dbo
 
 users_bp = Blueprint('users', __name__)

@@ -15,7 +15,7 @@
         <div class="container" style="width: 350px;">
             <div class="card">
                 <div class="card-body">
-                    <form class="form-signin" method="POST">
+                    <form class="form-signin" method="POST" novalidate>
                         <h1 class="h3 mb-3 font-weight-normal">Login to spndr</h1>
                         {{form.hidden_tag()}}
                         {{form.email(type="email", id="inputEmail", class="form-control", placeholder="Email")}}

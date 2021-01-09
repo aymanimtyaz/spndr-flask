@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, request, Blueprint
 from flask_login import login_required, current_user
-from src.forms.transaction_form import TransactionForm
-from src import db
+from spndr_flask.forms.transaction_form import TransactionForm
+from spndr_flask import db
 from spndr_tg.db_engine import db_operations as dbo
 
 core_bp = Blueprint('core', __name__)

@@ -1,4 +1,4 @@
-from src import db, login_mgr
+from spndr_flask import db, login_mgr
 from flask_login import UserMixin
 from flask_bcrypt import generate_password_hash, check_password_hash
 
