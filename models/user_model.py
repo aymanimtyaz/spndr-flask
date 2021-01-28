@@ -17,10 +17,13 @@ class User(db.Model, UserMixin):
 
     def __init__(self, email, password):
         self.email = email
-        self.hashed_password = generate_password_hash(password).decode('utf-8')
+        self.generate_password(password)
 
     def check_password(self, password):
         return check_password_hash(self.hashed_password, password)
+
+    def generate_password(self, password):
+        self.hashed_password = generate_password_hash(password).decode('utf-8')
 
     def __repr__(self):
         return f'UserID: {self.id}'

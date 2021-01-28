@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container">
+    <div class="jumbotron">
+        <h1>My Account</h1>
+        <h2>{{current_user.email}}</h1>
+        <hr class="my-4">
+        <h2>Linked accounts</h2>
+        {%if current_user.telegram_id != None%}
+            <img src="https://telegram.org/img/t_logo.svg?1" width="60px" height="60px"><button type="button"><a href="{{url_for('users.unlinktelegram')}}">Unlink</a></button>
+        {%endif%}
+    </div>
+    <a href="{{url_for('users.editaccount')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
+</div>
+{%endblock%}

@@ -1,0 +1,30 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container" style="width: 850px;">
+    <h2>Edit Account</h2>
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" novalidate>
+                <div class="form-group">
+                    {{form.hidden_tag()}}
+                    {{form.email(class="form-control", placeholder="email")}}
+                    {{form.password(class="form-control", placeholder="new password")}}
+                    {{form.confirm_password(class="form-control", placeholder="confirm new password")}}
+                    {%for errors in form.email.errors%}
+                        <small class="form-text text-muted text-center">{{errors}}</small>
+                    {%endfor%}
+                    {%for errors in form.password.errors%}
+                        <small class="form-text text-muted text-center">{{errors}}</small>
+                    {%endfor%}
+                    {%if form.password.errors[0] != 'Passwords must match'%}
+                        {%for errors in form.confirm_password.errors%}
+                            <small class="form-text text-muted text-center">{{errors}}</small>
+                        {%endfor%}
+                    {%endif%}
+                    {{form.submit_button(class="btn btn-lg btn-primary btn-block", type="submit")}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}
